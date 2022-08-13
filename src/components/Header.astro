@@ -1,5 +1,7 @@
 ---
 import { SITE_TITLE } from '../config';
+// @ts-ignore
+import GithubLogo from '@astropub/icons/GitHubLogo';
 ---
 
 <header class="text-gray-600 body-font">
@@ -15,10 +17,14 @@ import { SITE_TITLE } from '../config';
 	  </a>
 	  
 	  <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+
 		<a class="pr-5 text-gray-600 hover:text-gray-800" href="/">Home</a>
 		<a class="pr-5 text-gray-600 hover:text-gray-800" href="/blog">Blog</a>
-		<a class="pr-5 text-gray-600 hover:text-gray-800" href="https://github.com/gdwr" target="_blank">GitHub</a>
-	  </nav>
+		<a class="pr-5 text-gray-600 hover:text-gray-800" href="https://github.com/gdwr" target="_blank">
+			<GithubLogo class="w-10" />
+		</a>
+		
+      </nav>
 	
 	</div>
   </header>
