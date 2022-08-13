@@ -1,0 +1,12 @@
+*
+
+# Exclude all and make exceptions
+!public/
+!src/
+!astro.config.mjs
+!nginx.conf
+!package.json
+!postcss.config.js
+!tailwind.config.js
+!tsconfig.json
+!yarn.lock

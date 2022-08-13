@@ -1,0 +1,39 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Use Astro.glob() to fetch all posts, and then sort them by date.
+const posts = (await Astro.glob('./blog/*.md')).sort(
+	(a, b) =>
+		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
+);
+---
+
+<!DOCTYPE html>
+<html lang="en-us">
+	<Header />
+
+		<main>
+			<content class="text-center">
+				<ul>
+					{posts.map((post) => (
+						<li>
+							<time datetime={post.frontmatter.publishDate}>
+								{new Date(post.frontmatter.publishDate).toLocaleDateString('en-us', {
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric',
+								})}
+							</time>
+							<a href={post.url} class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+								{post.frontmatter.title}
+							</a>
+						</li>
+					))}
+				</ul>
+			</content>
+		</main>
+
+	<Footer />
+
+</html>

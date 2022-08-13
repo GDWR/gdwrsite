@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gdwrsite
+  labels:
+    app: gdwrsite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gdwrsite
+  template:
+    metadata:
+      labels:
+        app: gdwrsite
+    spec:
+      containers:
+      - name: gdwrsite
+        image: ghcr.io/gdwr/gdwrsite:main
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
