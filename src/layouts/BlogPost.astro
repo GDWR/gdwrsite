@@ -19,31 +19,40 @@ const {
 
 ---
 
-<Header />
+<!DOCTYPE html>
+<html lang="en-us" class="dark">
 
-<main>
-	<article class="text-gray-700 container mx-auto flex flex-col items-center">
+	<body class="bg-white dark:bg-neutral-900">
+
+		<Header />
+
+		<main>
+			<article class="text-gray-700 container mx-auto flex flex-col items-center">
+				
+				<a class="lg:w-3/6 md:w-4/6 w-full mb-10 object-cover object-center"  href={heroImage}>
+					<img class="rounded mx-auto" src={heroImage} alt="" />
+				</a>
 		
-		<a class="lg:w-3/6 md:w-4/6 w-full mb-10 object-cover object-center"  href={heroImage}>
-			<img class="rounded mx-auto" src={heroImage} alt="" />
-		</a>
+				<div class="flex flex-col items-center divide-y">
+		
+					<div class="pb-10">
+						<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-200">{title}</h1>
+						{publishDate && <time class="dark:text-gray-400">{publishDate}</time>}
+						{updatedDate && <div class="dark:text-gray-400">Last updated on <time>{updatedDate}</time></div>}
+					</div>
+		
+					<div class="pt-10 prose md:prose-lg lg:prose-xl dark:prose-invert">
+						<slot/>
+					</div>
+		
+				</div>
+		
+			</article>
+		</main>
+		
+		
+		<Footer />
 
-		<div class="flex flex-col items-center divide-y">
+	</body>
 
-			<div class="pb-10">
-				<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{title}</h1>
-				{publishDate && <time>{publishDate}</time>}
-				{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
-			</div>
-
-			<div class="pt-10 prose md:prose-lg lg:prose-xl">
-				<slot/>
-			</div>
-
-		</div>
-
-	</article>
-</main>
-
-
-<Footer />
+</html>

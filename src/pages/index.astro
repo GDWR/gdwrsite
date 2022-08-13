@@ -1,17 +1,28 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+// let theme = localStorage.getItem("theme") ?? 'dark';
+// let systemTheme = window.matchMedia("(prefers-color-scheme: dark").matches;
 ---
 
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" class="dark">
 
-	<Header />
 
-	<main class="mx-auto text-center">
-		<h1>The site is currently being created</h1>
-	</main>
+	<body class="bg-white dark:bg-neutral-900">
 
-	<Footer />
+
+		<Header />
+
+		<main class="mx-auto text-center dark:text-gray-200">
+			<h1>The site is currently being created</h1>
+		</main>
+	
+		<Footer />
+
+	</body>
+
+	
 
 </html>

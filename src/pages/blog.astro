@@ -10,30 +10,34 @@ const posts = (await Astro.glob('./blog/*.md')).sort(
 ---
 
 <!DOCTYPE html>
-<html lang="en-us">
-	<Header />
+<html lang="en-us" class="dark">
 
-		<main>
-			<content class="text-center">
-				<ul>
-					{posts.map((post) => (
-						<li>
-							<time datetime={post.frontmatter.publishDate}>
-								{new Date(post.frontmatter.publishDate).toLocaleDateString('en-us', {
-									year: 'numeric',
-									month: 'short',
-									day: 'numeric',
-								})}
-							</time>
-							<a href={post.url} class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
-								{post.frontmatter.title}
-							</a>
-						</li>
-					))}
-				</ul>
-			</content>
-		</main>
+	<body class="bg-white dark:bg-neutral-900">
 
-	<Footer />
+		<Header />
 
+			<main>
+				<content class="text-center dark:text-gray-200">
+					<ul>
+						{posts.map((post) => (
+							<li>
+								<time datetime={post.frontmatter.publishDate}>
+									{new Date(post.frontmatter.publishDate).toLocaleDateString('en-us', {
+										year: 'numeric',
+										month: 'short',
+										day: 'numeric',
+									})}
+								</time>
+								<a href={post.url} class="underline text-orange-300 hover:text-orange-500 visited:text-red-600">
+									{post.frontmatter.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</content>
+			</main>
+
+		<Footer />
+	</body>
+	
 </html>
