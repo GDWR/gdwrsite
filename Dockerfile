@@ -7,7 +7,7 @@ RUN yarn install
 ADD . .
 RUN yarn run build
 
-FROM nginx
+FROM nginx:1.23
 
 COPY --from=builder /build/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
