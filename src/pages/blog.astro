@@ -3,38 +3,58 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob('./blog/*.md')).sort(
+const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 	(a, b) =>
 		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
 );
 ---
 
 <!DOCTYPE html>
-<html lang="en-us" class="dark">
+<html lang="en-us">
 
 	<body class="bg-white dark:bg-neutral-900">
 
 		<Header />
 
 			<main>
-				<content class="text-center dark:text-gray-200">
-					<ul>
-						{posts.map((post) => (
-							<li>
-								<time datetime={post.frontmatter.publishDate}>
-									{new Date(post.frontmatter.publishDate).toLocaleDateString('en-us', {
-										year: 'numeric',
-										month: 'short',
-										day: 'numeric',
-									})}
-								</time>
-								<a href={post.url} class="underline text-orange-300 hover:text-orange-500 visited:text-red-600">
-									{post.frontmatter.title}
-								</a>
-							</li>
-						))}
-					</ul>
+				<content class="dark:text-gray-200 body-font overflow-hidden">
+					<div class="container px-5 py-24 mx-auto">
+						<div class="w-full md:w-4/5 lg:w-3/5 mx-auto divide-y-2 divide-gray-400 dark:divide-white-100">
+							
+							{posts.map(post => (
+								<div class="py-8 flex flex-wrap md:flex-nowrap">
+									<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+										<div class="flex flex-wrap justify-center">
+												<img src={post.frontmatter.heroImage} class="object-contain w-8/12 shadow rounded max-w-full h-auto align-middle border-none" />
+										</div>
+									</div>
+									<div class="md:flex-grow">
+							  			<h2 class="text-2xl font-medium text-white-900 title-font mb-2">{post.frontmatter.title}</h2>
+										<time datetime={post.frontmatter.publishDate} class="mt-1 text-white-500 text-sm">
+											{new Date(post.frontmatter.publishDate).toLocaleDateString('en-us', {
+												year: 'numeric',
+												month: 'short',
+												day: 'numeric',
+											})}
+										</time>
+							  			<p class="leading-relaxed pt-5">{post.frontmatter.description}</p>
+							  			<a class="text-orange-500 hover:text-orange-300 dark:text-orange-300 hover:dark:text-orange-500 inline-flex items-center mt-4" href={post.url}>Read
+											<svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								  				<path d="M5 12h14"></path>
+								  				<path d="M12 5l7 7-7 7"></path>
+											</svg>
+							  			</a>
+									</div>
+						  		</div>
+							))}
+						  
+
+						</div>
+					</div>
+
+
 				</content>
+
 			</main>
 
 		<Footer />
