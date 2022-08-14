@@ -1,9 +1,8 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: "Markdown Style Guide"
-description: "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro."
+title: "Test post"
+description: "Test post including a range of markdown syntax."
 publishDate: "Aug 12 2022"
-updatedDate: "Aug 14 2022"
 heroImage: "/images/markdown.png"
 ---
 
