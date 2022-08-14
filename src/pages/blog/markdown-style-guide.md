@@ -7,6 +7,7 @@ updatedDate: "Aug 14 2022"
 heroImage: "/images/markdown.png"
 ---
 
+Testing "quotes".
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 
 ## Headings
