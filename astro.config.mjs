@@ -12,7 +12,7 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: ['remark-gfm', 'remark-smartypants'],
-    rehypePlugins: ['rehype-sanitize', 'rehype-autolink-headings', 'rehype-slug'],
+    rehypePlugins: ['rehype-autolink-headings', 'rehype-slug'],
     shikiConfig: {
       theme: 'slack-dark',
       wrap: true,
