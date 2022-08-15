@@ -6,11 +6,15 @@ publishDate: "Aug 15 2022"
 heroImage: "/images/markdown.png"
 ---
 
-This post will be talking about settings/config management in the Python ecosystem. I will be contrasting the differences between other languages and frameworks, with my limited experience of them. If you wish to update and/or correct any details I have written about please make a [pull request here]()
+When creating software that is expected to be ran in multiple environments it is commonplace to use environment variables[^1] and/or `settings.json` to hold your configuration. Doing so allows for users and/or engineers to define the differences between each of these environments, such as where a database the software will use is located with it's login details. 
 
-When creating software that is expected to be ran in multiple environments it is commonplace to use environment variables[^1] and/or `settings.json`. Doing so allows for you to define the differences between each of these environments, such as where a database the software will use is located with it's login details. 
+[^1]: [Environment variables](https://en.wikipedia.org/wiki/Environment_variable) are OS level variables that can be read from applications running on that device. This allows for other languages and programs to interact with the configuration of a system without parsing and updating files. Generic program langauges suchs as [C#](https://docs.microsoft.com/en-us/dotnet/api/system.environment.getenvironmentvariable?view=net-6.0), [Java](https://docs.oracle.com/javase/tutorial/essential/environment/env.html) and [Python](https://docs.python.org/3/library/os.html#os.environ) have builtin modules to make it easy for developers to access these variables.
 
-[^1]: [Environment variables](https://en.wikipedia.org/wiki/Environment_variable) are commonly accessible variables that can be accessed from the OS level. This allows for other languages and programs to interact with the configuration of a system without parsing and updating files. Generic program langauges suchs as C#, Java and Python have [builtin modules](https://docs.python.org/3/library/os.html#os.environ) to make it easy for developers to read these variables.
+Within Python we see a few different ways that developers have decided to tackle the issue of configuration. Lets take a look into some popular Pythoncentric applications;
+- https://github.com/lutris/lutris/blob/master/lutris/config.py
+- https://github.com/ansible/ansible/blob/devel/lib/ansible/config/manager.py
+- https://github.com/getsentry/sentry/tree/master/src/sentry/conf
+- https://github.com/3b1b/manim/blob/master/manimlib/config.py
 
 ## Defined in source
 ```py
