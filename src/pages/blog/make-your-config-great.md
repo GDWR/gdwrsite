@@ -1,16 +1,11 @@
----
-layout: "../../layouts/BlogPost.astro"
-title: "Make your config great"
-description: "Currently in draft."
-publishDate: "Aug 15 2022"
-heroImage: "/images/markdown.png"
----
+When creating software that is expected to be run in multiple environments it is commonplace to use environment variables[^1] and/or `settings.json` to hold your configuration. Doing so allows for users and/or engineers to define the differences between each of these environments, such as where a database the software will use is located with its login details. 
 
-When creating software that is expected to be ran in multiple environments it is commonplace to use environment variables[^1] and/or `settings.json` to hold your configuration. Doing so allows for users and/or engineers to define the differences between each of these environments, such as where a database the software will use is located with it's login details. 
+[^1]: [Environment variables](https://en.wikipedia.org/wiki/Environment_variable) are OS-level variables that can be read from applications running on that device. This allows for other languages and programs to interact with the configuration of a system without parsing and updating files. Generic program languages such as [C#](https://docs.microsoft.com/en-us/dotnet/api/system.environment.getenvironmentvariable?view=net-6.0), [Java](https://docs.oracle.com/javase/tutorial/essential/environment/env.html) and [Python](https://docs.python.org/3/library/os.html#os.environ) have builtin modules to make it easy for developers to access these variables.
 
-[^1]: [Environment variables](https://en.wikipedia.org/wiki/Environment_variable) are OS level variables that can be read from applications running on that device. This allows for other languages and programs to interact with the configuration of a system without parsing and updating files. Generic program langauges suchs as [C#](https://docs.microsoft.com/en-us/dotnet/api/system.environment.getenvironmentvariable?view=net-6.0), [Java](https://docs.oracle.com/javase/tutorial/essential/environment/env.html) and [Python](https://docs.python.org/3/library/os.html#os.environ) have builtin modules to make it easy for developers to access these variables.
+Within Python, we see a few different ways that developers have decided to tackle the issue of configuration. Let us take a look at some popular Pythoncentric applications.
 
-Within Python we see a few different ways that developers have decided to tackle the issue of configuration. Lets take a look into some popular Pythoncentric applications;
+# Sentry
+
 - https://github.com/lutris/lutris/blob/master/lutris/config.py
 - https://github.com/ansible/ansible/blob/devel/lib/ansible/config/manager.py
 - https://github.com/getsentry/sentry/tree/master/src/sentry/conf
@@ -31,7 +26,7 @@ DATABASE_PORT = 5432
 import json
 
 with open("./settings.json", "r") as f:
-	__RAW_SETTINGS = json.loads(f.read)
+    __RAW_SETTINGS = json.loads(f.read)
 
 DATABASE_HOST = __RAW_SETTINGS["DATABASE_HOST"]
 DATABASE_USER = __RAW_SETTINGS["DATABASE_USER"]
