@@ -12,8 +12,8 @@ When creating software that is expected to be ran in multiple environments it is
 
 [^1]: [Environment variables](https://en.wikipedia.org/wiki/Environment_variable) are commonly accessible variables that can be accessed from the OS level. This allows for other languages and programs to interact with the configuration of a system without parsing and updating files. Generic program langauges suchs as C#, Java and Python have [builtin modules](https://docs.python.org/3/library/os.html#os.environ) to make it easy for developers to read these variables.
 
-## `config.py` - defined in script
-```python
+## Defined in source
+```py
 # config.py
 
 DATABASE_HOST = "127.0.0.1"
@@ -22,8 +22,8 @@ DATABASE_PASSWORD = "very-secure"
 DATABASE_PORT = 5432
 ```
 
-## `config.py` - from file
-```python
+## From a file
+```py
 import json
 
 with open("./settings.json", "r") as f:
@@ -35,8 +35,8 @@ DATABASE_PASSWORD = __RAW_SETTINGS["DATABASE_PASSWORD"]
 DATABASE_PORT = __RAW_SETTINGS.get("DATABASE_PORT", 5432)
 ```
 
-## `config.py` - from environment
-```python
+## From environment variables
+```py
 # config.py
 from os import environ
 
