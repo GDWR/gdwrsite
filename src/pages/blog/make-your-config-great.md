@@ -1,3 +1,11 @@
+---
+layout: "../../layouts/BlogPost.astro"
+title: "Make Your Config Great"
+publishDate: ""
+draft: True
+heroImage: "/images/config-python.png"
+---
+
 When creating software that is expected to be run in multiple environments it is commonplace to use environment variables[^1] and/or `settings.json` to hold your configuration. Doing so allows for users and/or engineers to define the differences between each of these environments, such as where a database the software will use is located with its login details. 
 
 [^1]: [Environment variables](https://en.wikipedia.org/wiki/Environment_variable) are OS-level variables that can be read from applications running on that device. This allows for other languages and programs to interact with the configuration of a system without parsing and updating files. Generic program languages such as [C#](https://docs.microsoft.com/en-us/dotnet/api/system.environment.getenvironmentvariable?view=net-6.0), [Java](https://docs.oracle.com/javase/tutorial/essential/environment/env.html) and [Python](https://docs.python.org/3/library/os.html#os.environ) have builtin modules to make it easy for developers to access these variables.
