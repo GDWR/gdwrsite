@@ -1,28 +1,35 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
-// let theme = localStorage.getItem("theme") ?? 'dark';
-// let systemTheme = window.matchMedia("(prefers-color-scheme: dark").matches;
+const Buttons = [
+	{ text: "BLOG", link: "/blog" },
+	{ text: "PROJECTS", link: "/projects" },
+];
+
 ---
 
 <!DOCTYPE html>
 <html lang="en-us" class="dark">
 
-
-	<body class="bg-white dark:bg-neutral-900">
-
-
-		<Header />
-
-		<main class="mx-auto text-center dark:text-gray-200">
-			<h1>The site is currently being created</h1>
+	<body class="text-white bg-white font-mono dark:bg-neutral-900 ">
+		
+		<div class="flex flex-col items-center justify-center h-[50vh]">
+			<img src="/images/gdwr.png" class="h-48 md:h-64 hover:animate-pulse"/>
+			<h1 class="text-orange-500 text-8xl">GDWR</h1>
+			<h2 class="text-orange-300 text-4xl">Fullstack Developer</h2>
+		</div>
+		
+		<main class="flex justify-center gap-12 text-center">
+			{Buttons.map(b => <>
+				<a 
+					class="px-10 py-4 text-2xl rounded-md border bg-neutral-800 border-neutral-900 text-orange-300 hover:text-orange-500 hover:border-orange-500" 
+					href={b.link}>
+					{b.text}
+				</a>
+			</>)}
 		</main>
-	
+
 		<Footer />
-
 	</body>
-
-	
-
 </html>
