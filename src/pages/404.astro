@@ -1,17 +1,18 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import "@fontsource/jetbrains-mono";
 ---
 
 <!DOCTYPE html>
 <html lang="en-us" class="dark">
 
-	<body class="text-white bg-white font-mono dark:bg-neutral-900 ">
+	<body class="font-['jetbrains_mono'] dark:bg-stone-900 ">
         <Header />
 
         <div class="flex flex-col items-center justify-center h-[50vh]">
-            <h1 class="text-orange-500 text-8xl">404</h1>
-            <span class="text-orange-300 text-4xl">  Whatcha looking for? </span>
+            <h1 class="text-stone-700 text-8xl dark:text-orange-500">404</h1>
+            <span class="text-stone-500 text-4xl dark:text-orange-300 ">  Whatcha looking for? </span>
 		</div>
 		
 		<Footer />

@@ -1,6 +1,8 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import "@fontsource/jetbrains-mono";
+
 export interface Props {
 	content: {
 		title: string;
@@ -10,8 +12,6 @@ export interface Props {
 		heroImage?: string;
 	};
 }
-
-let x;
 
 const {
 	content: { title, description, publishDate, updatedDate, heroImage },
@@ -23,7 +23,7 @@ const {
 <html lang="en-us">
 <meta charset="UTF-8">
 
-	<body class="bg-white font-mono  dark:bg-neutral-900">
+	<body class="font-['jetbrains_mono'] dark:bg-stone-900">
 
 		<Header />
 
