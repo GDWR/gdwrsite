@@ -5,6 +5,7 @@ import "@fontsource/jetbrains-mono";
 
 export interface Props {
 	content: {
+		file: string;
 		title: string;
 		description: string;
 		publishDate?: string;
@@ -14,9 +15,10 @@ export interface Props {
 }
 
 const {
-	content: { title, description, publishDate, updatedDate, heroImage },
+	content: { file, title, publishDate, updatedDate, heroImage },
 } = Astro.props as Props;
 
+const relativeFilePath = file.split("/").pop();
 ---
 
 <!DOCTYPE html>
@@ -38,8 +40,13 @@ const {
 		
 					<div class="pb-10">
 						<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-200">{title}</h1>
-						{publishDate && <time class="dark:text-gray-400">{publishDate}</time>}
-						{updatedDate && <div class="dark:text-gray-400">Last updated on <time>{updatedDate}</time></div>}
+						{publishDate && <div class="text-base dark:text-gray-400">Published on <time datetime={publishDate} class="font-bold">{publishDate}</time></div>}
+						{updatedDate && <div class="text-sm dark:text-gray-400">Updated on <time datetime={updatedDate} class="font-bold">{updatedDate}</time></div>}
+						
+						<a class="text-orange-500 hover:text-orange-400 dark:text-orange-300 dark:hover:text-orange-500"
+    					   href={`https://github.com/GDWR/gdwrsite/edit/main/src/pages/blog/${relativeFilePath}`} 
+						   target="_blank">
+						Edit on Github</a>
 					</div>
 		
 					<div class="pt-10 prose prose-stone md:prose-lg lg:prose-xl dark:prose-invert">
