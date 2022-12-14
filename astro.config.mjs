@@ -5,6 +5,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://gdwr.me',
   integrations: [sitemap(), tailwind(), mdx()],
   markdown: {
     remarkPlugins: ['remark-gfm', 'remark-smartypants'],

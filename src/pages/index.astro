@@ -1,10 +1,9 @@
 ---
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const Buttons = [
-	{ text: "BLOG", link: "/blog" },
-	{ text: "PROJECTS", link: "/projects" },
+	{ text: "blog", link: "/blog" },
+	{ text: "goals", link: "/goals" },
 ];
 
 ---
@@ -23,7 +22,7 @@ const Buttons = [
 		<main class="flex justify-center gap-12 text-center">
 			{Buttons.map(b => <>
 				<a 
-					class="px-10 py-4 text-2xl rounded-md border bg-neutral-800 border-neutral-900 text-orange-300 hover:text-orange-500 hover:border-orange-500" 
+					class="px-10 py-4 text-2xl uppercase rounded-md border bg-neutral-800 border-neutral-900 text-orange-300 hover:text-orange-500 hover:border-orange-500" 
 					href={b.link}>
 					{b.text}
 				</a>

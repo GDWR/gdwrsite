@@ -1,0 +1,33 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const Goals = [
+    { name: "Advent of Code 2022", description: "Completed advent of code using a random language each day.", link: "https://github.com/gdwr/aoc2022", completed: false },
+    { name: "Write a blog post", description: "I really need to write something.", link: "/blog", completed: false }
+
+]
+---
+
+<!DOCTYPE html>
+<html lang="en-us" class="dark">
+
+	<body class="text-white bg-white font-mono dark:bg-neutral-900 ">
+		
+		<Header />
+        
+        <main class="flex flex-col items-center justify-center gap-8 text-center">
+            <h1 class="underline text-4xl"> Goals </h1>
+            
+            { Goals.map(goal => <a class="group px-8 pb-4 pt-2 bg-neutral-800 w-1/4 rounded-xl hover:cursor-pointer" href={goal.link}>
+                <h2 class="text-2xl text-orange-300 group-hover:text-orange-500">{goal.name}</h2>
+                <span>{goal.description}</span>
+                <span>{goal.name}</span>
+            </a>)
+            }
+
+        </main>
+
+		<Footer />
+	</body>
+</html>
