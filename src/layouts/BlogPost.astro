@@ -11,11 +11,12 @@ export interface Props {
 		publishDate?: string;
 		updatedDate?: string;
 		heroImage?: string;
+		draft?: boolean;
 	};
 }
 
 const {
-	content: { file, title, publishDate, updatedDate, heroImage },
+	content: { file, title, publishDate, updatedDate, heroImage, draft },
 } = Astro.props as Props;
 
 const relativeFilePath = file.split("/").pop();
@@ -23,44 +24,73 @@ const relativeFilePath = file.split("/").pop();
 
 <!DOCTYPE html>
 <html lang="en-us">
-<meta charset="UTF-8">
+	<meta charset="UTF-8" />
 
 	<body class="font-['jetbrains_mono'] dark:bg-stone-900">
-
 		<Header />
 
 		<main>
-			<article class="text-gray-700 container mx-auto flex flex-col items-center">
-				
-				<a class="lg:w-3/6 md:w-4/6 w-full mb-10 object-cover object-center"  href={heroImage}>
+			<article
+				class="text-gray-700 container mx-auto flex flex-col items-center"
+			>
+				<a
+					class="lg:w-4/12 md:w-4/6 w-full mb-10 object-cover object-center"
+					href={heroImage}
+				>
 					<img class="rounded mx-auto" src={heroImage} alt="" />
 				</a>
-		
+
 				<div class="flex flex-col items-center divide-y">
-		
 					<div class="pb-10">
-						<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-200">{title}</h1>
-						{publishDate && <div class="text-base dark:text-gray-400">Published on <time datetime={publishDate} class="font-bold">{publishDate}</time></div>}
-						{updatedDate && <div class="text-sm dark:text-gray-400">Updated on <time datetime={updatedDate} class="font-bold">{updatedDate}</time></div>}
-						
-						<a class="text-orange-500 hover:text-orange-400 dark:text-orange-300 dark:hover:text-orange-500"
-    					   href={`https://github.com/GDWR/gdwrsite/edit/main/src/pages/blog/${relativeFilePath}`} 
-						   target="_blank">
-						Edit on Github</a>
+						<h1
+							class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-200"
+						>
+							{title}
+						</h1>
+						{
+							draft && (
+								<div class="text-base dark:text-gray-400"> In Draft </div>
+							)
+						}
+						{
+							publishDate && (
+								<div class="text-base dark:text-gray-400">
+									Published on{" "}
+									<time datetime={publishDate} class="font-bold">
+										{publishDate}
+									</time>
+								</div>
+							)
+						}
+						{
+							updatedDate && (
+								<div class="text-sm dark:text-gray-400">
+									Updated on{" "}
+									<time datetime={updatedDate} class="font-bold">
+										{updatedDate}
+									</time>
+								</div>
+							)
+						}
+
+						<a
+							class="text-orange-500 hover:text-orange-400 dark:text-orange-300 dark:hover:text-orange-500"
+							href={`https://github.com/GDWR/gdwrsite/edit/main/src/pages/blog/${relativeFilePath}`}
+							target="_blank"
+						>
+							Edit on Github</a
+						>
 					</div>
-		
-					<div class="pt-10 prose prose-stone md:prose-lg lg:prose-xl dark:prose-invert">
-						<slot/>
+
+					<div
+						class="pt-10 prose prose-gdwr md:prose-lg lg:prose-xl dark:prose-invert"
+					>
+						<slot />
 					</div>
-		
 				</div>
-		
 			</article>
 		</main>
-		
-		
+
 		<Footer />
-
 	</body>
-
 </html>
