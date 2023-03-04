@@ -13,7 +13,7 @@
     "@astrojs/mdx": "^0.9.0",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
-    "@fontsource/jetbrains-mono": "^4.5.10",
+    "@fontsource/jetbrains-mono": "^4.5.12",
     "@tailwindcss/typography": "^0.5.4",
     "astro": "^1.0.4",
     "rehype-autolink-headings": "^6.1.1",

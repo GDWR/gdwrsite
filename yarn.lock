@@ -373,10 +373,10 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.14.54.tgz#de2a4be678bd4d0d1ffbb86e6de779cde5999028"
   integrity sha512-bZBrLAIX1kpWelV0XemxBZllyRmM6vgFQQG2GdNb+r3Fkp0FOh1NJSvekXDs7jq70k4euu1cryLMfU+mTXlEpw==
 
-"@fontsource/jetbrains-mono@^4.5.10":
-  version "4.5.10"
-  resolved "https://registry.yarnpkg.com/@fontsource/jetbrains-mono/-/jetbrains-mono-4.5.10.tgz#c237505aeea535cf6ce1462c4ea39258f0677c2b"
-  integrity sha512-dylbkBmAWL0fkjDpDoDbQCwTQ/W3DzLtVXmwGyAyttfKliPGSP2WpAmmMFYp9NpqFMF7CLprFyzppe8u39Orkw==
+"@fontsource/jetbrains-mono@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/jetbrains-mono/-/jetbrains-mono-4.5.12.tgz#d965dca932f0ecf5379013f4dff3aec7b817b91b"
+  integrity sha512-LJF1ala1/u+wXZmESFqIk08FA9yGX4/uAAleCHmXUMgEjvNAYFHUQQ7eK5hQQoBOwh99cU5suTrqYqEkgzwzPA==
 
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
