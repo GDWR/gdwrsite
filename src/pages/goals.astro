@@ -4,8 +4,9 @@ import Footer from "../components/Footer.astro";
 import "@fontsource/jetbrains-mono";
 
 const Goals = [
+    { name: "More blog posts", description: "Lets keep this ball rolling!", link: "/blog", completed: false },
     { name: "Advent of Code 2022", description: "Completed advent of code using a random language each day.", link: "https://github.com/gdwr/aoc2022", completed: false },
-    { name: "Write a blog post", description: "I really need to write something.", link: "/blog", completed: false }
+    { name: "Write a blog post", description: "I really need to write something.", link: "/blog", completed: true }
 ]
 ---
 
@@ -20,7 +21,7 @@ const Goals = [
             <h1 class="underline font-bold text-4xl"> Goals </h1>
             
             { Goals.map(goal => <a class="group px-8 pb-4 pt-2 w-1/4 rounded-xl bg-stone-300 hover:cursor-pointer dark:bg-stone-800" href={goal.link}>
-                <h2 class="text-2xl font-bold group-hover:text-orange-400 dark:text-orange-300 dark:group-hover:text-orange-500">{goal.name}</h2>
+                <h2 class=`${goal.completed ? "line-through" : ""} text-2xl font-bold group-hover:text-orange-400 dark:text-orange-300 dark:group-hover:text-orange-500`>{goal.name}</h2>
                 <span>{goal.description}</span>
                 <span>{goal.name}</span>
             </a>)
