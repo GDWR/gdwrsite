@@ -3,7 +3,7 @@ layout: "../../layouts/BlogPost.astro"
 title: "Protocol Typing"
 description: "Typing by structure, not by inheritance"
 publishDate: "March 3, 2023"
-updatedDate: "March 5, 2023"
+updatedDate: "March 8, 2023"
 heroImage: "/images/protocol-typing.jpg"
 ---
 
@@ -11,7 +11,7 @@ heroImage: "/images/protocol-typing.jpg"
 [PEP 544](https://peps.python.org/pep-0544/) and is supported by the two big players in Python static analysis --
 [MyPy](https://docs.python.org/3/library/typing.html#typing.Protocol) and [
 Pyright](https://github.com/microsoft/pyright/blob/main/docs/features.md#type-checking-features). It enables developers to
-type by what object do rather than what object inherit. For a brief example so this hopefully starts to make sense, lets make one.
+type by what objects do rather than what objects inherit. For a brief example so this hopefully starts to make sense, lets make one.
 
 ```python
 from typing import Protocol
@@ -32,10 +32,10 @@ def write_to_file(reader: Readable, filepath: str) -> None:
 ```
 
 If we run [MyPy on the code](https://mypy-play.net/?mypy=latest&python=3.11&gist=495b48e01b44d5139b89b771fbb5477e) we get
-no issues and a gold star. As we expect `Readable` to have a `.read()` function, this is fully typesafe. Now lets try to use
+no issues and a gold star. As we expect a `Readable` object to have a `.read()` function, this is fully typesafe. Now lets try to use
 this function.
 
-For this lets start by using a object that Python already has in builtin. Lets open the source file, and write it to another file.
+For this lets start by using a object that Python already has builtin. Lets open the source file, and write it to another file.
 
 ```python
 # Note: __name__ is the absolute path to the source file
@@ -44,12 +44,11 @@ with open(__name__, "r") as file:
 ```
 
 [Again, MyPy](https://mypy-play.net/?mypy=latest&python=3.11&gist=1f1d1fbad94dc88c782b58b16ff95c38) gives us the all clear as
-`file` object has a `.read()` method that returns a `str`. So you can start to see that `Readable` is a Type that ensure a object
+`file` object has a `.read()` method that returns a `str`. So you can start to see that `Readable` is a Type that ensures an object
 has the structure you have defined. Lets make our own class follow the `Readable` protocol to understand why this is powerful in
 contrast to inheritance.
 
-We are implementing an object to represent a website. This takes in a url, and on read will make a http request using the commonly
-used [requests](https://requests.readthedocs.io/en/latest/) library, returning the page content as text.
+We are implementing an object to represent a website. This takes in a url, and on read will make a http request using the [requests](https://requests.readthedocs.io/en/latest/) library, returning the page content as text.
 
 ```python
 import requests
@@ -65,7 +64,7 @@ class Website:  # Notice no inheritance
         return response.text
 ```
 
-As our `Website` object implements the `Readable` by having the `def read(self) -> str:` method signature, we can use it in
+As our `Website` object implements the `Readable` protocol by having the `def read(self) -> str:` method signature, we can use it in
 our `write_to_file` function.
 
 ```python
@@ -75,7 +74,7 @@ write_to_file(my_website, "website.out")
 ```
 
 Once again, [MyPy is happy with this](https://gist.github.com/GDWR/2dd090fb24c8eb87d696f931e6d76c95). As you can see, we are able
-to use two completely different implementation that have no inherited functionality in the same function while remaining typesafe.
+to use two completely different implementations that have no inherited functionality in the same function while remaining typesafe.
 
 
 ### Resources
