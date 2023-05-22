@@ -12,18 +12,18 @@ const Buttons = [
 <!DOCTYPE html>
 <html lang="en-us" class="dark">
 
-	<body class="font-['jetbrains_mono'] dark:bg-stone-900 ">
+	<body class="flex flex-col justify-center h-[77vh] font-['jetbrains_mono'] dark:bg-stone-900">
 		
-		<div class="flex flex-col items-center justify-center h-[50vh]">
-			<img src="/images/gdwr.png" alt="GDWR Avatar" class="h-48 md:h-64 hover:animate-pulse"/>
-			<h1 class="text-stone-800 text-8xl dark:text-orange-500">GDWR</h1>
-			<h2 class="text-stone-700 text-4xl dark:text-orange-300">Fullstack Developer</h2>
+		<div class="flex flex-col items-center justify-center">
+			<img src="/images/gdwr.png" alt="GDWR Avatar" class="h-72 hover:animate-pulse"/>
+			<h1 class="text-stone-800 text-4xl dark:text-orange-500 md:text-6xl">GDWR</h1>
+			<h2 class="text-stone-700 text-2xl text-center dark:text-orange-300 md:text-4xl">Fullstack Developer</h2>
 		</div>
-		
-		<main class="flex justify-center gap-12 text-center">
+
+		<main class="mt-16 flex justify-center gap-12 text-center md:mt-8">
 			{Buttons.map(b => <>
-				<a 
-					class="px-10 py-4 text-2xl uppercase rounded-md border bg-orange-400 hover:bg-orange-500 dark:text-orange-300 dark:bg-stone-800 dark:border-stone-900 dark:hover:bg-stone-800 dark:hover:text-orange-500 dark:hover:border-orange-500" 
+				<a
+					class="px-10 py-4 text-2xl uppercase rounded-md border bg-orange-400 hover:bg-orange-500 dark:text-orange-300 dark:bg-stone-800 dark:border-stone-900 dark:hover:bg-stone-800 dark:hover:text-orange-500 dark:hover:border-orange-500"
 					href={b.link}>
 					{b.text}
 				</a>
