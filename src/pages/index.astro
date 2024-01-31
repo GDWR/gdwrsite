@@ -6,15 +6,40 @@ const Buttons = [
 	{ text: "blog", link: "/blog" },
 ];
 
+const title = "GDWR";
+const campfireImage = "/images/gdwr_small.png";
+
 ---
 
 <!DOCTYPE html>
 <html lang="en-us" class="dark">
+	<head>
+		<meta charset="UTF-8">
+		
+		<title>{title}</title>
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://gdwr.me" />
+		<meta property="og:title" content={title} />
+		<meta name="description" content="GDWR's person portfolio" />
+		<meta property="og:description" content="Fullstack Developer" />
+		<meta property="twitter:title" content={title} />
+		<meta property="og:site_name" content={title} />
+		<meta name="theme-color" content="#f97316" />
+
+		<meta property="og:image" content={campfireImage} />
+		<meta property="twitter:image" content={campfireImage} />
+		<link rel="apple-touch-icon" href={campfireImage} />
+		<meta property="og:image:alt" content="A cozy campfire" />
+		<meta property="twitter:image:alt" content="A cozy campfire" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
 
 	<body class="flex flex-col justify-center h-[77vh] font-['jetbrains_mono'] dark:bg-stone-900">
 		
 		<div class="flex flex-col items-center justify-center">
-			<img src="/images/gdwr.png" alt="GDWR Avatar" class="h-72 hover:animate-pulse"/>
+			<img src={campfireImage} alt="GDWR Avatar" class="h-72 hover:animate-pulse"/>
 			<h1 class="text-stone-800 text-4xl dark:text-orange-500 md:text-6xl">GDWR</h1>
 			<h2 class="text-stone-700 text-2xl text-center dark:text-orange-300 md:text-4xl">Fullstack Developer</h2>
 		</div>
